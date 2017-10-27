@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ab4273bd7c84cb8a51b8a8cbc6ab5a0" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Ciudades" Width="1.5" PointX="1.5" PointY="19.375" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.ClientePuntosCarga" Width="1.5" PointX="7.5" PointY="4.75" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Clientes" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Comentarios" Width="1.5" PointX="10.5" PointY="2.25" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.ComentariosOrigen" Width="1.5" PointX="12.75" PointY="5.625" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Contactos" Width="1.5" PointX="5.25" PointY="10.625" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.ContactoTelefonos" Width="1.5" PointX="7.5" PointY="11.125" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Direcciones" Width="1.5" PointX="3" PointY="14.875" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Documentos" Width="1.5" PointX="9.75" PointY="5.875" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Estados" Width="1.5" PointX="1.5" PointY="23.375" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.EstatusFases" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Fases" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.GrupoCancelacienes" Width="1.5" PointX="15" PointY="6.125" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Grupos" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.Municipios" Width="1.5" PointX="1.5" PointY="26.875" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.PoblacionesLocalidades" Width="1.5" PointX="0.75" PointY="14.625" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.TiposDocumentos" Width="1.5" PointX="7.5" PointY="1" />
+        <EntityTypeShape EntityType="IBD.MEDEMModel.TiposGiros" Width="1.5" PointX="0.75" PointY="6.25" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Ciudad_Estados" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_PoblacionesLocalidades_Ciudad" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_ClientePuntosCarga_Clientes" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_ClientePuntosCarga_Direccion" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_ComentariosOrigen_ClientePuntosCarga" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Documentos_ClientePuntosCarga" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Clientes_Direccion" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Clientes_Grupos" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_ComentariosOrigen_Clientes" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Documentos_Clientes" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_ComentariosOrigen_Comentarios" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_ComentariosOrigen_Grupos" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_GrupoCancelacienes_ComentariosOrigen" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Contactos_Grupos" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_ContactoTelefonos_Contactos" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Direccion_PoblacionesLocalidades" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Documentos_TiposDocumento" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Municipio_Estados" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_PoblacionesLocalidades_Estados" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Grupos_EstatusFases" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Grupos_Fases" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Grupos_Grupos" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_Grupos_TiposGiro" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_PoblacionesLocalidades_Municipio" />
+        <AssociationConnector Association="IBD.MEDEMModel.FK_TiposDocumento_TiposDocumento" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

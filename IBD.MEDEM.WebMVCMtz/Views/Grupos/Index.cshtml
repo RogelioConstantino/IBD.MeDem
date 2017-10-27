@@ -1,0 +1,58 @@
+﻿@model IEnumerable<IBD.MEDEM.Entities.Grupos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="container ">
+    <h2>Hover Rows</h2>
+    <p>The .table-hover class enables a hover state on table rows:</p>
+
+</div>
+
+<div class="row">
+
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s3"><a href="#tGrupPr" class="active">Prospectos</a></li>
+            <li class="tab col s3"><a  href="#tGrupOf">Ofertación</a></li>
+            <li class="tab col s3 "><a href="#tGrupCo">Contratación</a></li>
+        </ul>
+    </div>
+
+    <div id="tGrupPr" class="col s12">
+        Prospectos div
+        @*@Html.Partial("_Grupos", Model)*@
+
+        @Html.Partial("_Grupos", new List<IBD.MEDEM.Entities.ObtenerGrupos>{new IBD.MEDEM.Entities.ObtenerGrupos{
+       Estatus = true,
+       CapacidadKW = (decimal)232.43,
+       EstatusClientes = true,
+       EstatusFases = "en captura",
+       EstatusPuntoCarga = true,
+       Fase = "Prospeccion",
+       FechaCreacion = DateTime.Now,
+       Nombre = "no,mbre grupo creado",
+       TotalClientes = 5,
+      TotalPuntoCarga =  19 }
+   })
+    </div>
+
+    <div id="tGrupOf" class="col s12">
+        Ofertación
+    </div>
+    
+    <div id="tGrupCo" class="col s12">
+        Contratación
+    </div>
+
+</div>
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

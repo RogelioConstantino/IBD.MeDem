@@ -1,0 +1,1735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IBD.MEDEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="450" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="ClientePuntosCarga">
+          <Key>
+            <PropertyRef Name="IdPuntoCarga" />
+          </Key>
+          <Property Name="IdPuntoCarga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="450" />
+          <Property Name="IdDireccion" Type="int" Nullable="false" />
+          <Property Name="RPU" Type="varchar" MaxLength="50" />
+          <Property Name="Calle" Type="varchar" MaxLength="450" />
+          <Property Name="Numero" Type="varchar" MaxLength="50" />
+          <Property Name="TarifaDemandaCFE" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SegundaDemandaAnualMax" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EnergiaBase" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EnergiaIntermedia" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EnergiaPunta" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DemandaFacturable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PagoActual" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Estatus" Type="bit" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGrupo" Type="int" Nullable="false" />
+          <Property Name="RazonSocial" Type="char" MaxLength="250" Nullable="false" />
+          <Property Name="RFC" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="IdDireccion" Type="int" Nullable="false" />
+          <Property Name="CapacidadKW" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PuntosCarga" Type="int" />
+          <Property Name="Estatus" Type="bit" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Comentarios">
+          <Key>
+            <PropertyRef Name="IdComentario" />
+          </Key>
+          <Property Name="IdComentario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="450" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="ComentariosOrigen">
+          <Key>
+            <PropertyRef Name="IdComentarioOrigen" />
+          </Key>
+          <Property Name="IdComentarioOrigen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdComentario" Type="int" Nullable="false" />
+          <Property Name="IdGrupo" Type="int" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="IdPuntoCarga" Type="int" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Contactos">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGrupo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="Cargo" Type="char" MaxLength="300" />
+          <Property Name="Email" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Estatus" Type="bit" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="ContactoTelefonos">
+          <Key>
+            <PropertyRef Name="IdTelefono" />
+          </Key>
+          <Property Name="IdTelefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdContacto" Type="int" Nullable="false" />
+          <Property Name="NumeroTelefonico" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="Estatus" Type="bit" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Direcciones">
+          <Key>
+            <PropertyRef Name="IdDireccion" />
+          </Key>
+          <Property Name="IdDireccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPoblacionLocalidad" Type="int" Nullable="false" />
+          <Property Name="Calle" Type="varchar" MaxLength="450" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="int" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="IdPuntoCarga" Type="int" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="450" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="EstatusFases">
+          <Key>
+            <PropertyRef Name="IdEstatusFases" />
+          </Key>
+          <Property Name="IdEstatusFases" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EstatusFases" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Fases">
+          <Key>
+            <PropertyRef Name="IdFase" />
+          </Key>
+          <Property Name="IdFase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="char" MaxLength="500" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="GrupoCancelacienes">
+          <Key>
+            <PropertyRef Name="IdGrupoCancelacion" />
+          </Key>
+          <Property Name="IdGrupoCancelacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdComentarioOrigen" Type="int" Nullable="false" />
+          <Property Name="ProveedorActual" Type="varchar" MaxLength="50" />
+          <Property Name="FechaFinContrato" Type="datetime" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFase" Type="int" Nullable="false" />
+          <Property Name="IdEstatusFases" Type="int" Nullable="false" />
+          <Property Name="IdTipoGiro" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="CapacidadKW" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PuntosCarga" Type="int" />
+          <Property Name="Estatus" Type="bit" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="IdMunicipio" />
+          </Key>
+          <Property Name="IdMunicipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="450" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="PoblacionesLocalidades">
+          <Key>
+            <PropertyRef Name="IdPoblacionLocalidad" />
+          </Key>
+          <Property Name="IdPoblacionLocalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="IdMunicipio" Type="int" />
+          <Property Name="IdCiudad" Type="int" />
+          <Property Name="CodigoPostal" Type="varchar" MaxLength="10" />
+          <Property Name="PoblacionLocalidad" Type="varchar" MaxLength="10" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="TiposDocumentos">
+          <Key>
+            <PropertyRef Name="IdTipoDocumento" />
+          </Key>
+          <Property Name="IdTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTipoDocumentoPadre" Type="int" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <EntityType Name="TiposGiros">
+          <Key>
+            <PropertyRef Name="IdTipoGiro" />
+          </Key>
+          <Property Name="IdTipoGiro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="char" MaxLength="150" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModificacion" Type="char" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="date" />
+        </EntityType>
+        <Association Name="FK_Ciudad_Estados">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Ciudades">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientePuntosCarga_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="ClientePuntosCarga" Type="Self.ClientePuntosCarga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ClientePuntosCarga">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientePuntosCarga_Direccion">
+          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="1" />
+          <End Role="ClientePuntosCarga" Type="Self.ClientePuntosCarga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direcciones">
+              <PropertyRef Name="IdDireccion" />
+            </Principal>
+            <Dependent Role="ClientePuntosCarga">
+              <PropertyRef Name="IdDireccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Direccion">
+          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direcciones">
+              <PropertyRef Name="IdDireccion" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdDireccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Grupos">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_ClientePuntosCarga">
+          <End Role="ClientePuntosCarga" Type="Self.ClientePuntosCarga" Multiplicity="0..1" />
+          <End Role="ComentariosOrigen" Type="Self.ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientePuntosCarga">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="ComentariosOrigen" Type="Self.ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_Comentarios">
+          <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="1" />
+          <End Role="ComentariosOrigen" Type="Self.ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comentarios">
+              <PropertyRef Name="IdComentario" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdComentario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_Grupos">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="0..1" />
+          <End Role="ComentariosOrigen" Type="Self.ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactos_Grupos">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="1" />
+          <End Role="Contactos" Type="Self.Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactoTelefonos_Contactos">
+          <End Role="Contactos" Type="Self.Contactos" Multiplicity="1" />
+          <End Role="ContactoTelefonos" Type="Self.ContactoTelefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactos">
+              <PropertyRef Name="IdContacto" />
+            </Principal>
+            <Dependent Role="ContactoTelefonos">
+              <PropertyRef Name="IdContacto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Direccion_PoblacionesLocalidades">
+          <End Role="PoblacionesLocalidades" Type="Self.PoblacionesLocalidades" Multiplicity="1" />
+          <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdPoblacionLocalidad" />
+            </Principal>
+            <Dependent Role="Direcciones">
+              <PropertyRef Name="IdPoblacionLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documentos_ClientePuntosCarga">
+          <End Role="ClientePuntosCarga" Type="Self.ClientePuntosCarga" Multiplicity="0..1" />
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientePuntosCarga">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documentos_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documentos_TiposDocumento">
+          <End Role="TiposDocumentos" Type="Self.TiposDocumentos" Multiplicity="0..1" />
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposDocumentos">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoCancelacienes_ComentariosOrigen">
+          <End Role="ComentariosOrigen" Type="Self.ComentariosOrigen" Multiplicity="1" />
+          <End Role="GrupoCancelacienes" Type="Self.GrupoCancelacienes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComentariosOrigen">
+              <PropertyRef Name="IdComentarioOrigen" />
+            </Principal>
+            <Dependent Role="GrupoCancelacienes">
+              <PropertyRef Name="IdComentarioOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_EstatusFases">
+          <End Role="EstatusFases" Type="Self.EstatusFases" Multiplicity="1" />
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstatusFases">
+              <PropertyRef Name="IdEstatusFases" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdEstatusFases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_Fases">
+          <End Role="Fases" Type="Self.Fases" Multiplicity="1" />
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fases">
+              <PropertyRef Name="IdFase" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdFase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_Grupos">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="1" />
+          <End Role="Grupos1" Type="Self.Grupos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Grupos1">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_TiposGiro">
+          <End Role="TiposGiros" Type="Self.TiposGiros" Multiplicity="1" />
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposGiros">
+              <PropertyRef Name="IdTipoGiro" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdTipoGiro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipio_Estados">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoblacionesLocalidades_Ciudad">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="0..1" />
+          <End Role="PoblacionesLocalidades" Type="Self.PoblacionesLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoblacionesLocalidades_Estados">
+          <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+          <End Role="PoblacionesLocalidades" Type="Self.PoblacionesLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoblacionesLocalidades_Municipio">
+          <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+          <End Role="PoblacionesLocalidades" Type="Self.PoblacionesLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="IdMunicipio" />
+            </Principal>
+            <Dependent Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TiposDocumento_TiposDocumento">
+          <End Role="TiposDocumentos" Type="Self.TiposDocumentos" Multiplicity="0..1" />
+          <End Role="TiposDocumentos1" Type="Self.TiposDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposDocumentos">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Principal>
+            <Dependent Role="TiposDocumentos1">
+              <PropertyRef Name="IdTipoDocumentoPadre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_ObtenerGrupos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProducto" Type="int" Mode="In" />
+          <Parameter Name="idNoTarjeta" Type="char" Mode="In" />
+          <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="IBDMEDEMModelStoreContainer">
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientePuntosCarga" EntityType="Self.ClientePuntosCarga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comentarios" EntityType="Self.Comentarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComentariosOrigen" EntityType="Self.ComentariosOrigen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contactos" EntityType="Self.Contactos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactoTelefonos" EntityType="Self.ContactoTelefonos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Direcciones" EntityType="Self.Direcciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstatusFases" EntityType="Self.EstatusFases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fases" EntityType="Self.Fases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrupoCancelacienes" EntityType="Self.GrupoCancelacienes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PoblacionesLocalidades" EntityType="Self.PoblacionesLocalidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposDocumentos" EntityType="Self.TiposDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposGiros" EntityType="Self.TiposGiros" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ciudad_Estados" Association="Self.FK_Ciudad_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Ciudades" EntitySet="Ciudades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientePuntosCarga_Clientes" Association="Self.FK_ClientePuntosCarga_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientePuntosCarga_Direccion" Association="Self.FK_ClientePuntosCarga_Direccion">
+            <End Role="Direcciones" EntitySet="Direcciones" />
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Direccion" Association="Self.FK_Clientes_Direccion">
+            <End Role="Direcciones" EntitySet="Direcciones" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Grupos" Association="Self.FK_Clientes_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_ClientePuntosCarga" Association="Self.FK_ComentariosOrigen_ClientePuntosCarga">
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_Clientes" Association="Self.FK_ComentariosOrigen_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_Comentarios" Association="Self.FK_ComentariosOrigen_Comentarios">
+            <End Role="Comentarios" EntitySet="Comentarios" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_Grupos" Association="Self.FK_ComentariosOrigen_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactos_Grupos" Association="Self.FK_Contactos_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactoTelefonos_Contactos" Association="Self.FK_ContactoTelefonos_Contactos">
+            <End Role="Contactos" EntitySet="Contactos" />
+            <End Role="ContactoTelefonos" EntitySet="ContactoTelefonos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Direccion_PoblacionesLocalidades" Association="Self.FK_Direccion_PoblacionesLocalidades">
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+            <End Role="Direcciones" EntitySet="Direcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documentos_ClientePuntosCarga" Association="Self.FK_Documentos_ClientePuntosCarga">
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documentos_Clientes" Association="Self.FK_Documentos_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documentos_TiposDocumento" Association="Self.FK_Documentos_TiposDocumento">
+            <End Role="TiposDocumentos" EntitySet="TiposDocumentos" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoCancelacienes_ComentariosOrigen" Association="Self.FK_GrupoCancelacienes_ComentariosOrigen">
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+            <End Role="GrupoCancelacienes" EntitySet="GrupoCancelacienes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_EstatusFases" Association="Self.FK_Grupos_EstatusFases">
+            <End Role="EstatusFases" EntitySet="EstatusFases" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_Fases" Association="Self.FK_Grupos_Fases">
+            <End Role="Fases" EntitySet="Fases" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_Grupos" Association="Self.FK_Grupos_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Grupos1" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_TiposGiro" Association="Self.FK_Grupos_TiposGiro">
+            <End Role="TiposGiros" EntitySet="TiposGiros" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipio_Estados" Association="Self.FK_Municipio_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoblacionesLocalidades_Ciudad" Association="Self.FK_PoblacionesLocalidades_Ciudad">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoblacionesLocalidades_Estados" Association="Self.FK_PoblacionesLocalidades_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoblacionesLocalidades_Municipio" Association="Self.FK_PoblacionesLocalidades_Municipio">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TiposDocumento_TiposDocumento" Association="Self.FK_TiposDocumento_TiposDocumento">
+            <End Role="TiposDocumentos" EntitySet="TiposDocumentos" />
+            <End Role="TiposDocumentos1" EntitySet="TiposDocumentos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IBD.MEDEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IBDMedem" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="ObtenerGrupos" ReturnType="Collection(IBD.MEDEMModel.ObtenerGrupos)">
+            <Parameter Name="idProducto" Mode="In" Type="Int32" />
+            <Parameter Name="idNoTarjeta" Mode="In" Type="String" />
+            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="Ciudades" EntityType="IBD.MEDEMModel.Ciudades" />
+          <EntitySet Name="ClientePuntosCarga" EntityType="IBD.MEDEMModel.ClientePuntosCarga" />
+          <EntitySet Name="Clientes" EntityType="IBD.MEDEMModel.Clientes" />
+          <EntitySet Name="Comentarios" EntityType="IBD.MEDEMModel.Comentarios" />
+          <EntitySet Name="ComentariosOrigen" EntityType="IBD.MEDEMModel.ComentariosOrigen" />
+          <EntitySet Name="Contactos" EntityType="IBD.MEDEMModel.Contactos" />
+          <EntitySet Name="ContactoTelefonos" EntityType="IBD.MEDEMModel.ContactoTelefonos" />
+          <EntitySet Name="Direcciones" EntityType="IBD.MEDEMModel.Direcciones" />
+          <EntitySet Name="Documentos" EntityType="IBD.MEDEMModel.Documentos" />
+          <EntitySet Name="Estados" EntityType="IBD.MEDEMModel.Estados" />
+          <EntitySet Name="EstatusFases" EntityType="IBD.MEDEMModel.EstatusFases" />
+          <EntitySet Name="Fases" EntityType="IBD.MEDEMModel.Fases" />
+          <EntitySet Name="GrupoCancelacienes" EntityType="IBD.MEDEMModel.GrupoCancelacienes" />
+          <EntitySet Name="Grupos" EntityType="IBD.MEDEMModel.Grupos" />
+          <EntitySet Name="Municipios" EntityType="IBD.MEDEMModel.Municipios" />
+          <EntitySet Name="PoblacionesLocalidades" EntityType="IBD.MEDEMModel.PoblacionesLocalidades" />
+          <EntitySet Name="TiposDocumentos" EntityType="IBD.MEDEMModel.TiposDocumentos" />
+          <EntitySet Name="TiposGiros" EntityType="IBD.MEDEMModel.TiposGiros" />
+          <AssociationSet Name="FK_Ciudad_Estados" Association="IBD.MEDEMModel.FK_Ciudad_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Ciudades" EntitySet="Ciudades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoblacionesLocalidades_Ciudad" Association="IBD.MEDEMModel.FK_PoblacionesLocalidades_Ciudad">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientePuntosCarga_Clientes" Association="IBD.MEDEMModel.FK_ClientePuntosCarga_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientePuntosCarga_Direccion" Association="IBD.MEDEMModel.FK_ClientePuntosCarga_Direccion">
+            <End Role="Direcciones" EntitySet="Direcciones" />
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_ClientePuntosCarga" Association="IBD.MEDEMModel.FK_ComentariosOrigen_ClientePuntosCarga">
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documentos_ClientePuntosCarga" Association="IBD.MEDEMModel.FK_Documentos_ClientePuntosCarga">
+            <End Role="ClientePuntosCarga" EntitySet="ClientePuntosCarga" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Direccion" Association="IBD.MEDEMModel.FK_Clientes_Direccion">
+            <End Role="Direcciones" EntitySet="Direcciones" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Grupos" Association="IBD.MEDEMModel.FK_Clientes_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_Clientes" Association="IBD.MEDEMModel.FK_ComentariosOrigen_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documentos_Clientes" Association="IBD.MEDEMModel.FK_Documentos_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_Comentarios" Association="IBD.MEDEMModel.FK_ComentariosOrigen_Comentarios">
+            <End Role="Comentarios" EntitySet="Comentarios" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComentariosOrigen_Grupos" Association="IBD.MEDEMModel.FK_ComentariosOrigen_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GrupoCancelacienes_ComentariosOrigen" Association="IBD.MEDEMModel.FK_GrupoCancelacienes_ComentariosOrigen">
+            <End Role="ComentariosOrigen" EntitySet="ComentariosOrigen" />
+            <End Role="GrupoCancelacienes" EntitySet="GrupoCancelacienes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactos_Grupos" Association="IBD.MEDEMModel.FK_Contactos_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactoTelefonos_Contactos" Association="IBD.MEDEMModel.FK_ContactoTelefonos_Contactos">
+            <End Role="Contactos" EntitySet="Contactos" />
+            <End Role="ContactoTelefonos" EntitySet="ContactoTelefonos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Direccion_PoblacionesLocalidades" Association="IBD.MEDEMModel.FK_Direccion_PoblacionesLocalidades">
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+            <End Role="Direcciones" EntitySet="Direcciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documentos_TiposDocumento" Association="IBD.MEDEMModel.FK_Documentos_TiposDocumento">
+            <End Role="TiposDocumentos" EntitySet="TiposDocumentos" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipio_Estados" Association="IBD.MEDEMModel.FK_Municipio_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoblacionesLocalidades_Estados" Association="IBD.MEDEMModel.FK_PoblacionesLocalidades_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_EstatusFases" Association="IBD.MEDEMModel.FK_Grupos_EstatusFases">
+            <End Role="EstatusFases" EntitySet="EstatusFases" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_Fases" Association="IBD.MEDEMModel.FK_Grupos_Fases">
+            <End Role="Fases" EntitySet="Fases" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_Grupos" Association="IBD.MEDEMModel.FK_Grupos_Grupos">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Grupos1" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupos_TiposGiro" Association="IBD.MEDEMModel.FK_Grupos_TiposGiro">
+            <End Role="TiposGiros" EntitySet="TiposGiros" />
+            <End Role="Grupos" EntitySet="Grupos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoblacionesLocalidades_Municipio" Association="IBD.MEDEMModel.FK_PoblacionesLocalidades_Municipio">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="PoblacionesLocalidades" EntitySet="PoblacionesLocalidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TiposDocumento_TiposDocumento" Association="IBD.MEDEMModel.FK_TiposDocumento_TiposDocumento">
+            <End Role="TiposDocumentos" EntitySet="TiposDocumentos" />
+            <End Role="TiposDocumentos1" EntitySet="TiposDocumentos" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="ObtenerGrupos">
+          <Property Type="Int32" Name="IdGrupo" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="CapacidadKW" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="Estatus" Nullable="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Fase" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="EstatusFases" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TotalClientes" Nullable="true" />
+          <Property Type="Boolean" Name="EstatusClientes" Nullable="false" />
+          <Property Type="Int32" Name="TotalPuntoCarga" Nullable="true" />
+          <Property Type="Boolean" Name="EstatusPuntoCarga" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Estados" Relationship="IBD.MEDEMModel.FK_Ciudad_Estados" FromRole="Ciudades" ToRole="Estados" />
+          <NavigationProperty Name="PoblacionesLocalidades" Relationship="IBD.MEDEMModel.FK_PoblacionesLocalidades_Ciudad" FromRole="Ciudades" ToRole="PoblacionesLocalidades" />
+        </EntityType>
+        <EntityType Name="ClientePuntosCarga">
+          <Key>
+            <PropertyRef Name="IdPuntoCarga" />
+          </Key>
+          <Property Name="IdPuntoCarga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="IdDireccion" Type="Int32" Nullable="false" />
+          <Property Name="RPU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Calle" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TarifaDemandaCFE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SegundaDemandaAnualMax" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EnergiaBase" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EnergiaIntermedia" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EnergiaPunta" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DemandaFacturable" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PagoActual" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Clientes" Relationship="IBD.MEDEMModel.FK_ClientePuntosCarga_Clientes" FromRole="ClientePuntosCarga" ToRole="Clientes" />
+          <NavigationProperty Name="Direcciones" Relationship="IBD.MEDEMModel.FK_ClientePuntosCarga_Direccion" FromRole="ClientePuntosCarga" ToRole="Direcciones" />
+          <NavigationProperty Name="ComentariosOrigen" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_ClientePuntosCarga" FromRole="ClientePuntosCarga" ToRole="ComentariosOrigen" />
+          <NavigationProperty Name="Documentos" Relationship="IBD.MEDEMModel.FK_Documentos_ClientePuntosCarga" FromRole="ClientePuntosCarga" ToRole="Documentos" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+          <Property Name="RazonSocial" Type="String" Nullable="false" MaxLength="250" FixedLength="true" Unicode="false" />
+          <Property Name="RFC" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="IdDireccion" Type="Int32" Nullable="false" />
+          <Property Name="CapacidadKW" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PuntosCarga" Type="Int32" />
+          <Property Name="Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ClientePuntosCarga" Relationship="IBD.MEDEMModel.FK_ClientePuntosCarga_Clientes" FromRole="Clientes" ToRole="ClientePuntosCarga" />
+          <NavigationProperty Name="Direcciones" Relationship="IBD.MEDEMModel.FK_Clientes_Direccion" FromRole="Clientes" ToRole="Direcciones" />
+          <NavigationProperty Name="Grupos" Relationship="IBD.MEDEMModel.FK_Clientes_Grupos" FromRole="Clientes" ToRole="Grupos" />
+          <NavigationProperty Name="ComentariosOrigen" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_Clientes" FromRole="Clientes" ToRole="ComentariosOrigen" />
+          <NavigationProperty Name="Documentos" Relationship="IBD.MEDEMModel.FK_Documentos_Clientes" FromRole="Clientes" ToRole="Documentos" />
+        </EntityType>
+        <EntityType Name="Comentarios">
+          <Key>
+            <PropertyRef Name="IdComentario" />
+          </Key>
+          <Property Name="IdComentario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comentario" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ComentariosOrigen" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_Comentarios" FromRole="Comentarios" ToRole="ComentariosOrigen" />
+        </EntityType>
+        <EntityType Name="ComentariosOrigen">
+          <Key>
+            <PropertyRef Name="IdComentarioOrigen" />
+          </Key>
+          <Property Name="IdComentarioOrigen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdComentario" Type="Int32" Nullable="false" />
+          <Property Name="IdGrupo" Type="Int32" />
+          <Property Name="IdCliente" Type="Int32" />
+          <Property Name="IdPuntoCarga" Type="Int32" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ClientePuntosCarga" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_ClientePuntosCarga" FromRole="ComentariosOrigen" ToRole="ClientePuntosCarga" />
+          <NavigationProperty Name="Clientes" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_Clientes" FromRole="ComentariosOrigen" ToRole="Clientes" />
+          <NavigationProperty Name="Comentarios" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_Comentarios" FromRole="ComentariosOrigen" ToRole="Comentarios" />
+          <NavigationProperty Name="Grupos" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_Grupos" FromRole="ComentariosOrigen" ToRole="Grupos" />
+          <NavigationProperty Name="GrupoCancelacienes" Relationship="IBD.MEDEMModel.FK_GrupoCancelacienes_ComentariosOrigen" FromRole="ComentariosOrigen" ToRole="GrupoCancelacienes" />
+        </EntityType>
+        <EntityType Name="Contactos">
+          <Key>
+            <PropertyRef Name="IdContacto" />
+          </Key>
+          <Property Name="IdContacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Cargo" Type="String" MaxLength="300" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Grupos" Relationship="IBD.MEDEMModel.FK_Contactos_Grupos" FromRole="Contactos" ToRole="Grupos" />
+          <NavigationProperty Name="ContactoTelefonos" Relationship="IBD.MEDEMModel.FK_ContactoTelefonos_Contactos" FromRole="Contactos" ToRole="ContactoTelefonos" />
+        </EntityType>
+        <EntityType Name="ContactoTelefonos">
+          <Key>
+            <PropertyRef Name="IdTelefono" />
+          </Key>
+          <Property Name="IdTelefono" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdContacto" Type="Int32" Nullable="false" />
+          <Property Name="NumeroTelefonico" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Contactos" Relationship="IBD.MEDEMModel.FK_ContactoTelefonos_Contactos" FromRole="ContactoTelefonos" ToRole="Contactos" />
+        </EntityType>
+        <EntityType Name="Direcciones">
+          <Key>
+            <PropertyRef Name="IdDireccion" />
+          </Key>
+          <Property Name="IdDireccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPoblacionLocalidad" Type="Int32" Nullable="false" />
+          <Property Name="Calle" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ClientePuntosCarga" Relationship="IBD.MEDEMModel.FK_ClientePuntosCarga_Direccion" FromRole="Direcciones" ToRole="ClientePuntosCarga" />
+          <NavigationProperty Name="Clientes" Relationship="IBD.MEDEMModel.FK_Clientes_Direccion" FromRole="Direcciones" ToRole="Clientes" />
+          <NavigationProperty Name="PoblacionesLocalidades" Relationship="IBD.MEDEMModel.FK_Direccion_PoblacionesLocalidades" FromRole="Direcciones" ToRole="PoblacionesLocalidades" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoDocumento" Type="Int32" />
+          <Property Name="IdCliente" Type="Int32" />
+          <Property Name="IdPuntoCarga" Type="Int32" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ClientePuntosCarga" Relationship="IBD.MEDEMModel.FK_Documentos_ClientePuntosCarga" FromRole="Documentos" ToRole="ClientePuntosCarga" />
+          <NavigationProperty Name="Clientes" Relationship="IBD.MEDEMModel.FK_Documentos_Clientes" FromRole="Documentos" ToRole="Clientes" />
+          <NavigationProperty Name="TiposDocumentos" Relationship="IBD.MEDEMModel.FK_Documentos_TiposDocumento" FromRole="Documentos" ToRole="TiposDocumentos" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Ciudades" Relationship="IBD.MEDEMModel.FK_Ciudad_Estados" FromRole="Estados" ToRole="Ciudades" />
+          <NavigationProperty Name="Municipios" Relationship="IBD.MEDEMModel.FK_Municipio_Estados" FromRole="Estados" ToRole="Municipios" />
+          <NavigationProperty Name="PoblacionesLocalidades" Relationship="IBD.MEDEMModel.FK_PoblacionesLocalidades_Estados" FromRole="Estados" ToRole="PoblacionesLocalidades" />
+        </EntityType>
+        <EntityType Name="EstatusFases">
+          <Key>
+            <PropertyRef Name="IdEstatusFases" />
+          </Key>
+          <Property Name="IdEstatusFases" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EstatusFases1" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Grupos" Relationship="IBD.MEDEMModel.FK_Grupos_EstatusFases" FromRole="EstatusFases" ToRole="Grupos" />
+        </EntityType>
+        <EntityType Name="Fases">
+          <Key>
+            <PropertyRef Name="IdFase" />
+          </Key>
+          <Property Name="IdFase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Grupos" Relationship="IBD.MEDEMModel.FK_Grupos_Fases" FromRole="Fases" ToRole="Grupos" />
+        </EntityType>
+        <EntityType Name="GrupoCancelacienes">
+          <Key>
+            <PropertyRef Name="IdGrupoCancelacion" />
+          </Key>
+          <Property Name="IdGrupoCancelacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdComentarioOrigen" Type="Int32" Nullable="false" />
+          <Property Name="ProveedorActual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaFinContrato" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ComentariosOrigen" Relationship="IBD.MEDEMModel.FK_GrupoCancelacienes_ComentariosOrigen" FromRole="GrupoCancelacienes" ToRole="ComentariosOrigen" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFase" Type="Int32" Nullable="false" />
+          <Property Name="IdEstatusFases" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoGiro" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="CapacidadKW" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PuntosCarga" Type="Int32" />
+          <Property Name="Estatus" Type="Boolean" Nullable="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Clientes" Relationship="IBD.MEDEMModel.FK_Clientes_Grupos" FromRole="Grupos" ToRole="Clientes" />
+          <NavigationProperty Name="ComentariosOrigen" Relationship="IBD.MEDEMModel.FK_ComentariosOrigen_Grupos" FromRole="Grupos" ToRole="ComentariosOrigen" />
+          <NavigationProperty Name="Contactos" Relationship="IBD.MEDEMModel.FK_Contactos_Grupos" FromRole="Grupos" ToRole="Contactos" />
+          <NavigationProperty Name="EstatusFases" Relationship="IBD.MEDEMModel.FK_Grupos_EstatusFases" FromRole="Grupos" ToRole="EstatusFases" />
+          <NavigationProperty Name="Fases" Relationship="IBD.MEDEMModel.FK_Grupos_Fases" FromRole="Grupos" ToRole="Fases" />
+          <NavigationProperty Name="Grupos1" Relationship="IBD.MEDEMModel.FK_Grupos_Grupos" FromRole="Grupos" ToRole="Grupos1" />
+          <NavigationProperty Name="Grupos2" Relationship="IBD.MEDEMModel.FK_Grupos_Grupos" FromRole="Grupos1" ToRole="Grupos" />
+          <NavigationProperty Name="TiposGiros" Relationship="IBD.MEDEMModel.FK_Grupos_TiposGiro" FromRole="Grupos" ToRole="TiposGiros" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="IdMunicipio" />
+          </Key>
+          <Property Name="IdMunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Estados" Relationship="IBD.MEDEMModel.FK_Municipio_Estados" FromRole="Municipios" ToRole="Estados" />
+          <NavigationProperty Name="PoblacionesLocalidades" Relationship="IBD.MEDEMModel.FK_PoblacionesLocalidades_Municipio" FromRole="Municipios" ToRole="PoblacionesLocalidades" />
+        </EntityType>
+        <EntityType Name="PoblacionesLocalidades">
+          <Key>
+            <PropertyRef Name="IdPoblacionLocalidad" />
+          </Key>
+          <Property Name="IdPoblacionLocalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="IdMunicipio" Type="Int32" />
+          <Property Name="IdCiudad" Type="Int32" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PoblacionLocalidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Ciudades" Relationship="IBD.MEDEMModel.FK_PoblacionesLocalidades_Ciudad" FromRole="PoblacionesLocalidades" ToRole="Ciudades" />
+          <NavigationProperty Name="Direcciones" Relationship="IBD.MEDEMModel.FK_Direccion_PoblacionesLocalidades" FromRole="PoblacionesLocalidades" ToRole="Direcciones" />
+          <NavigationProperty Name="Estados" Relationship="IBD.MEDEMModel.FK_PoblacionesLocalidades_Estados" FromRole="PoblacionesLocalidades" ToRole="Estados" />
+          <NavigationProperty Name="Municipios" Relationship="IBD.MEDEMModel.FK_PoblacionesLocalidades_Municipio" FromRole="PoblacionesLocalidades" ToRole="Municipios" />
+        </EntityType>
+        <EntityType Name="TiposDocumentos">
+          <Key>
+            <PropertyRef Name="IdTipoDocumento" />
+          </Key>
+          <Property Name="IdTipoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoDocumentoPadre" Type="Int32" />
+          <Property Name="TipoDocumento" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Documentos" Relationship="IBD.MEDEMModel.FK_Documentos_TiposDocumento" FromRole="TiposDocumentos" ToRole="Documentos" />
+          <NavigationProperty Name="TiposDocumentos1" Relationship="IBD.MEDEMModel.FK_TiposDocumento_TiposDocumento" FromRole="TiposDocumentos" ToRole="TiposDocumentos1" />
+          <NavigationProperty Name="TiposDocumentos2" Relationship="IBD.MEDEMModel.FK_TiposDocumento_TiposDocumento" FromRole="TiposDocumentos1" ToRole="TiposDocumentos" />
+        </EntityType>
+        <EntityType Name="TiposGiros">
+          <Key>
+            <PropertyRef Name="IdTipoGiro" />
+          </Key>
+          <Property Name="IdTipoGiro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModificacion" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Grupos" Relationship="IBD.MEDEMModel.FK_Grupos_TiposGiro" FromRole="TiposGiros" ToRole="Grupos" />
+        </EntityType>
+        <Association Name="FK_Ciudad_Estados">
+          <End Type="IBD.MEDEMModel.Estados" Role="Estados" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Ciudades" Role="Ciudades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Ciudades">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoblacionesLocalidades_Ciudad">
+          <End Type="IBD.MEDEMModel.Ciudades" Role="Ciudades" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.PoblacionesLocalidades" Role="PoblacionesLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientePuntosCarga_Clientes">
+          <End Type="IBD.MEDEMModel.Clientes" Role="Clientes" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.ClientePuntosCarga" Role="ClientePuntosCarga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ClientePuntosCarga">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientePuntosCarga_Direccion">
+          <End Type="IBD.MEDEMModel.Direcciones" Role="Direcciones" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.ClientePuntosCarga" Role="ClientePuntosCarga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direcciones">
+              <PropertyRef Name="IdDireccion" />
+            </Principal>
+            <Dependent Role="ClientePuntosCarga">
+              <PropertyRef Name="IdDireccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_ClientePuntosCarga">
+          <End Type="IBD.MEDEMModel.ClientePuntosCarga" Role="ClientePuntosCarga" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.ComentariosOrigen" Role="ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientePuntosCarga">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documentos_ClientePuntosCarga">
+          <End Type="IBD.MEDEMModel.ClientePuntosCarga" Role="ClientePuntosCarga" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.Documentos" Role="Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientePuntosCarga">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdPuntoCarga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Direccion">
+          <End Type="IBD.MEDEMModel.Direcciones" Role="Direcciones" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Clientes" Role="Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direcciones">
+              <PropertyRef Name="IdDireccion" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdDireccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clientes_Grupos">
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Clientes" Role="Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_Clientes">
+          <End Type="IBD.MEDEMModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.ComentariosOrigen" Role="ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documentos_Clientes">
+          <End Type="IBD.MEDEMModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.Documentos" Role="Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_Comentarios">
+          <End Type="IBD.MEDEMModel.Comentarios" Role="Comentarios" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.ComentariosOrigen" Role="ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comentarios">
+              <PropertyRef Name="IdComentario" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdComentario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComentariosOrigen_Grupos">
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.ComentariosOrigen" Role="ComentariosOrigen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="ComentariosOrigen">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GrupoCancelacienes_ComentariosOrigen">
+          <End Type="IBD.MEDEMModel.ComentariosOrigen" Role="ComentariosOrigen" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.GrupoCancelacienes" Role="GrupoCancelacienes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComentariosOrigen">
+              <PropertyRef Name="IdComentarioOrigen" />
+            </Principal>
+            <Dependent Role="GrupoCancelacienes">
+              <PropertyRef Name="IdComentarioOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactos_Grupos">
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Contactos" Role="Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactoTelefonos_Contactos">
+          <End Type="IBD.MEDEMModel.Contactos" Role="Contactos" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.ContactoTelefonos" Role="ContactoTelefonos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactos">
+              <PropertyRef Name="IdContacto" />
+            </Principal>
+            <Dependent Role="ContactoTelefonos">
+              <PropertyRef Name="IdContacto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Direccion_PoblacionesLocalidades">
+          <End Type="IBD.MEDEMModel.PoblacionesLocalidades" Role="PoblacionesLocalidades" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Direcciones" Role="Direcciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdPoblacionLocalidad" />
+            </Principal>
+            <Dependent Role="Direcciones">
+              <PropertyRef Name="IdPoblacionLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documentos_TiposDocumento">
+          <End Type="IBD.MEDEMModel.TiposDocumentos" Role="TiposDocumentos" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.Documentos" Role="Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposDocumentos">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipio_Estados">
+          <End Type="IBD.MEDEMModel.Estados" Role="Estados" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Municipios" Role="Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoblacionesLocalidades_Estados">
+          <End Type="IBD.MEDEMModel.Estados" Role="Estados" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.PoblacionesLocalidades" Role="PoblacionesLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_EstatusFases">
+          <End Type="IBD.MEDEMModel.EstatusFases" Role="EstatusFases" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstatusFases">
+              <PropertyRef Name="IdEstatusFases" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdEstatusFases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_Fases">
+          <End Type="IBD.MEDEMModel.Fases" Role="Fases" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fases">
+              <PropertyRef Name="IdFase" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdFase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_Grupos">
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Grupos1">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupos_TiposGiro">
+          <End Type="IBD.MEDEMModel.TiposGiros" Role="TiposGiros" Multiplicity="1" />
+          <End Type="IBD.MEDEMModel.Grupos" Role="Grupos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposGiros">
+              <PropertyRef Name="IdTipoGiro" />
+            </Principal>
+            <Dependent Role="Grupos">
+              <PropertyRef Name="IdTipoGiro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoblacionesLocalidades_Municipio">
+          <End Type="IBD.MEDEMModel.Municipios" Role="Municipios" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.PoblacionesLocalidades" Role="PoblacionesLocalidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="IdMunicipio" />
+            </Principal>
+            <Dependent Role="PoblacionesLocalidades">
+              <PropertyRef Name="IdMunicipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TiposDocumento_TiposDocumento">
+          <End Type="IBD.MEDEMModel.TiposDocumentos" Role="TiposDocumentos" Multiplicity="0..1" />
+          <End Type="IBD.MEDEMModel.TiposDocumentos" Role="TiposDocumentos1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposDocumentos">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Principal>
+            <Dependent Role="TiposDocumentos1">
+              <PropertyRef Name="IdTipoDocumentoPadre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IBDMEDEMModelStoreContainer" CdmEntityContainer="IBDMedem">
+          <FunctionImportMapping FunctionImportName="ObtenerGrupos" FunctionName="IBD.MEDEMModel.Store.sp_ObtenerGrupos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IBD.MEDEMModel.ObtenerGrupos">
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CapacidadKW" ColumnName="CapacidadKW" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Fase" ColumnName="Fase" />
+                <ScalarProperty Name="EstatusFases" ColumnName="EstatusFases" />
+                <ScalarProperty Name="TotalClientes" ColumnName="TotalClientes" />
+                <ScalarProperty Name="EstatusClientes" ColumnName="EstatusClientes" />
+                <ScalarProperty Name="TotalPuntoCarga" ColumnName="TotalPuntoCarga" />
+                <ScalarProperty Name="EstatusPuntoCarga" ColumnName="EstatusPuntoCarga" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Ciudades">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Ciudades">
+              <MappingFragment StoreEntitySet="Ciudades">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientePuntosCarga">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.ClientePuntosCarga">
+              <MappingFragment StoreEntitySet="ClientePuntosCarga">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="PagoActual" ColumnName="PagoActual" />
+                <ScalarProperty Name="DemandaFacturable" ColumnName="DemandaFacturable" />
+                <ScalarProperty Name="EnergiaPunta" ColumnName="EnergiaPunta" />
+                <ScalarProperty Name="EnergiaIntermedia" ColumnName="EnergiaIntermedia" />
+                <ScalarProperty Name="EnergiaBase" ColumnName="EnergiaBase" />
+                <ScalarProperty Name="SegundaDemandaAnualMax" ColumnName="SegundaDemandaAnualMax" />
+                <ScalarProperty Name="TarifaDemandaCFE" ColumnName="TarifaDemandaCFE" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="RPU" ColumnName="RPU" />
+                <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdPuntoCarga" ColumnName="IdPuntoCarga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="PuntosCarga" ColumnName="PuntosCarga" />
+                <ScalarProperty Name="CapacidadKW" ColumnName="CapacidadKW" />
+                <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comentarios">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Comentarios">
+              <MappingFragment StoreEntitySet="Comentarios">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="IdComentario" ColumnName="IdComentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComentariosOrigen">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.ComentariosOrigen">
+              <MappingFragment StoreEntitySet="ComentariosOrigen">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="IdPuntoCarga" ColumnName="IdPuntoCarga" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdComentario" ColumnName="IdComentario" />
+                <ScalarProperty Name="IdComentarioOrigen" ColumnName="IdComentarioOrigen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contactos">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Contactos">
+              <MappingFragment StoreEntitySet="Contactos">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactoTelefonos">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.ContactoTelefonos">
+              <MappingFragment StoreEntitySet="ContactoTelefonos">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="NumeroTelefonico" ColumnName="NumeroTelefonico" />
+                <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+                <ScalarProperty Name="IdTelefono" ColumnName="IdTelefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Direcciones">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Direcciones">
+              <MappingFragment StoreEntitySet="Direcciones">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="IdPoblacionLocalidad" ColumnName="IdPoblacionLocalidad" />
+                <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="IdPuntoCarga" ColumnName="IdPuntoCarga" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estados">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Estados">
+              <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstatusFases">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.EstatusFases">
+              <MappingFragment StoreEntitySet="EstatusFases">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="EstatusFases1" ColumnName="EstatusFases" />
+                <ScalarProperty Name="IdEstatusFases" ColumnName="IdEstatusFases" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fases">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Fases">
+              <MappingFragment StoreEntitySet="Fases">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdFase" ColumnName="IdFase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrupoCancelacienes">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.GrupoCancelacienes">
+              <MappingFragment StoreEntitySet="GrupoCancelacienes">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="FechaFinContrato" ColumnName="FechaFinContrato" />
+                <ScalarProperty Name="ProveedorActual" ColumnName="ProveedorActual" />
+                <ScalarProperty Name="IdComentarioOrigen" ColumnName="IdComentarioOrigen" />
+                <ScalarProperty Name="IdGrupoCancelacion" ColumnName="IdGrupoCancelacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupos">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Grupos">
+              <MappingFragment StoreEntitySet="Grupos">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="PuntosCarga" ColumnName="PuntosCarga" />
+                <ScalarProperty Name="CapacidadKW" ColumnName="CapacidadKW" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTipoGiro" ColumnName="IdTipoGiro" />
+                <ScalarProperty Name="IdEstatusFases" ColumnName="IdEstatusFases" />
+                <ScalarProperty Name="IdFase" ColumnName="IdFase" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipios">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.Municipios">
+              <MappingFragment StoreEntitySet="Municipios">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PoblacionesLocalidades">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.PoblacionesLocalidades">
+              <MappingFragment StoreEntitySet="PoblacionesLocalidades">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="PoblacionLocalidad" ColumnName="PoblacionLocalidad" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="IdMunicipio" ColumnName="IdMunicipio" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdPoblacionLocalidad" ColumnName="IdPoblacionLocalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposDocumentos">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.TiposDocumentos">
+              <MappingFragment StoreEntitySet="TiposDocumentos">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="IdTipoDocumentoPadre" ColumnName="IdTipoDocumentoPadre" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposGiros">
+            <EntityTypeMapping TypeName="IBD.MEDEMModel.TiposGiros">
+              <MappingFragment StoreEntitySet="TiposGiros">
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTipoGiro" ColumnName="IdTipoGiro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

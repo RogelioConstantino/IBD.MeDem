@@ -1,0 +1,143 @@
+﻿@model IEnumerable<IBD.MEDEM.Entities.ObtenerGrupos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class='modal-link btn btn-info btn-sm' id="aModal">nuevo</a>
+
+    <a class='modal-link btn btn-info btn-sm' >nuevo</a>
+
+    <a class='modal-link btn btn-info btn-sm' href='@Url.Action("Create", "Grupo")'>nuevo</a>
+    <a class='modal-link btn btn-info btn-sm' href='@Url.Action("Create", "Grupo", new { id = Model })'>boton con parametor</a>
+
+    <a class='modal-link btn btn-info btn-sm' href="\Grupo\Create">Test Modal</a>
+    
+    @Html.ActionLink("Create New", "Create", new { htmlAttributes = new { @class = "btn btn-info btn-lg" , @type = "button" } })
+    <button type="button" class="btn btn-info btn-sm" id="btnTest" data-toggle="modal" data-target="#myModal">Open Modal</button>
+    
+</p>
+
+
+<table class="table table-striped table-hover table-condensed table-responsive">
+    <thead class="theadColor">
+        <tr>
+            <th>
+                @Html.DisplayName("Fecha de Solicitud")
+            </th>
+            <th>
+                @Html.DisplayName("Grupo")
+            </th>
+            <th>
+                @Html.DisplayName("Capacidad estimada (kW)")
+            </th>
+            <th>
+                @Html.DisplayName("Estautus")
+            </th>
+            <th>
+                @Html.DisplayName("Proceso")
+            </th>
+            <th>
+                @Html.DisplayName("Clientes")
+            </th>
+            <th>
+                @Html.DisplayName("Puntos de Carga")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody class="table-bordered ">
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaCreacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CapacidadKW)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstatusFases)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalClientes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPuntoCarga)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts
+{
+
+
+    <script>
+        function ActualizaTamañoModal(width, height) {
+            $('#myModal').width = width;
+            $('#myModal').height = height;
+        }
+
+        function ActualizaTituloModal(titulo) {
+            $("h4.modal-title").text(titulo);
+        }
+
+
+        $(document).ready(function () {
+            console.log("document loaded");
+        });
+
+        $(window).on("load", function () {
+            console.log("window loaded");
+        });
+
+        $("#btnHideModal").click(function () {
+            $("#loginModal").modal('hide');
+        });
+
+        $("#btnTest").click(function () {
+            ActualizaTituloModal("Nuevo Grupo");
+            $('#myModal').modal('show');
+        });
+
+        $("#aModal").click(function () {
+            ActualizaTituloModal("Nuevo Grupo");
+
+            $("#myModal .modal-body").load(
+                '@Url.Action("Create", "Grupo")',
+                function () {
+                    $('#myModal').modal('show');
+                });
+        });
+
+        $(".modal-link").click(function () {
+            ActualizaTituloModal("Nuevo Grupo");
+
+            $("#myModal .modal-body").load(
+                '@Url.Action("Create", "Grupo")',
+                function () {
+                    $('#myModal').modal('show');
+                });
+        });
+    </script>
+
+}

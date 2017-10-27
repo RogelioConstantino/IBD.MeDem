@@ -1,0 +1,66 @@
+﻿@model List<IBD.MEDEM.Entities.ObtenerGrupos>
+
+<div>
+    <table class="table table-striped table-hover table-condensed">
+        <thead class="theadColor">
+            <tr>
+                <th>Editar</th>
+                <th>Grupo</th>
+                <th>Estatus</th>
+                <th>Fecha de Solicitud</th>
+                <th>Capacidad estimada (kW)</th>
+                <th>No. Clientes</th>
+                <th>No. Puntos de Carga</th>
+            </tr>
+        </thead>
+        <tbody class="table-bordered ">
+            @if (Model == null || Model.Count.Equals(0))
+            {
+                <tr>
+                    <th>@Html.Label(" ")</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </th>
+                        <th>@Html.DisplayFor(modelItem => @item.Nombre)</th>
+                        <th>
+                            @*<div class="checkbox">
+                                @Html.CheckBoxFor(modelItemm => @item.Estatus)
+                                @Html.LabelFor(modelItem => @item.Estatus)
+                            </div>*@
+                            <div class="switch">
+                                <label>
+                                    Off
+                                    @*<input type="checkbox">*@
+                                    @Html.CheckBoxFor(modelItemm => @item.Estatus)
+                                    <span class="lever"></span>
+                                    On
+                                </label>
+                            </div>
+                        </th>
+                        <th>@Html.DisplayFor(modelItem => @item.FechaCreacion)</th>
+                        <th>@Html.DisplayFor(modelItem => @item.CapacidadKW)</th>
+                        <th>@Html.DisplayFor(modelItem => @item.TotalClientes)</th>
+                        <th>@Html.DisplayFor(modelItem => @item.TotalPuntoCarga)</th>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+
+

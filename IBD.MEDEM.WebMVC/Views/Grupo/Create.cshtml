@@ -1,0 +1,81 @@
+﻿@model IBD.MEDEM.Entities.Grupos
+
+@*@using (Ajax.BeginForm("Create", "Grupo", new AjaxOptions { InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "ajaxBeginFormResult" }))*@
+
+@using (Html.BeginForm(Model)) 
+    {
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+    
+            <legend> Grupo:</legend>
+    
+
+
+               <div class="form-inline">
+            <div class="form-group  col-md-6">
+                @*@Html.Label("Nombre:")*@
+                @Html.EditorFor(model => model.Nombre, 
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del Grupo" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group  col-md-6">
+                @*@Html.Label("Giro:")*@
+                @Html.DropDownListFor(m => m.IdTipoGiro, (ViewBag.CatalogoGiros as ICollection<IBD.MEDEM.Entities.TiposGiros>)
+               .Select(item => new SelectListItem
+               {
+                   Value = item.IdTipoGiro.ToString(),
+                   Text = item.Descripcion.ToString(),
+                   Selected = false
+               }
+              
+               ), new { @class = "form-control", @placeholder = "Seleccione Giro" })
+                @Html.ValidationMessageFor(model => model.IdTipoGiro, "", new { @class = "text-danger" })
+
+                
+            </div>
+        </div>
+    </fieldset>
+    
+    <br />
+    
+    @Html.Partial("../Contacto/_Create", new IBD.MEDEM.Entities.Contactos { IdGrupo = Model.IdGrupo})
+
+    <br />
+    
+    <fieldset>
+        <legend>Inf. Técnica:</legend>
+
+        <div class="form-inline">
+
+            <div class="form-horizontal col-md-6">
+                @*@Html.Label("Capacidad estimada(kW):", new { htmlAttributes = new { @class = "col-md-3" } })*@
+                @Html.EditorFor(model => model.CapacidadKW,
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "Capacidad estimada(kW)" } })
+                @Html.ValidationMessageFor(model => model.CapacidadKW, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-horizontal col-md-6">
+                @*@Html.Label("Puntos de carga estimados:", new { htmlAttributes = new { @class = "col-md-3" } })*@
+                @Html.EditorFor(model => model.PuntosCarga,
+                    new { htmlAttributes = new { @class = "form-control", @placeholder = "Puntos de carga estimados" } })
+                @Html.ValidationMessageFor(model => model.PuntosCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </fieldset>
+
+    <br />
+    
+    <div class="tab-content btn-group">
+            <button type="submit" class="btn btn-info btn-sm" >Guardar</button>
+            <button type="button" class="btn btn-info btn-sm" formaction="Create" formmethod="post">hgerger</button>
+            <button type="button" class="btn btn-info btn-sm" data-dismiss="modal">Cancelar</button>
+
+    </div>
+    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
